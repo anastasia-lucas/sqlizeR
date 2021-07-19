@@ -31,8 +31,10 @@ sqlize <- function(df, table="##mytable", na_string, file="mytable", save=TRUE) 
 
   if(save==TRUE){
     write.table(df$sql, file=paste0(file, ".sql"),
-                sep="\t", quote=FALSE, row.names=FALSE)
+                sep="\t", quote=FALSE,
+                row.names=FALSE, col.names=FALSE)
   } else {
-    write.table(df$sql, sep="\t", quote=FALSE, row.names=FALSE)
+    write.table(df$sql, sep="\t", quote=FALSE,
+                row.names=FALSE, col.names=FALSE)
   }
 }
