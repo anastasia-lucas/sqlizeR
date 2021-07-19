@@ -3,7 +3,7 @@
 
 ## An R package to SQL-ize your dataframes
 
-sqlizeR is a light-as-a-feather weight package with one job and one job only—to auto-create SQL insert statements from an existing dataframe.
+```sqlizeR``` is a light-as-a-feather weight package with one job and one job only—to auto-create SQL insert statements from an existing dataframe.
 
 ## Usage
 
