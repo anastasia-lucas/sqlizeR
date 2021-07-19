@@ -4,7 +4,7 @@
 \alias{sqlize}
 \title{sqlize}
 \usage{
-sqlize(df, table = "##mytable", na_string, file = "mytable", save = TRUE)
+sqlize(df, table, na_string, file = "sqlizeR", save = TRUE)
 }
 \arguments{
 \item{df}{data.frame}

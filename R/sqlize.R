@@ -12,9 +12,13 @@
 #' data(morley)
 #' sqlize(morley)
 
-sqlize <- function(df, table="##mytable", na_string, file="mytable", save=TRUE) {
+sqlize <- function(df, table, na_string, file="sqlizeR", save=TRUE) {
 
   df <- as.data.frame(df)
+
+  if(missing(table)){
+    stop("Please specify a name for your table!")
+  }
 
   # replace single quote with SQL escape quote
   df <- data.frame(lapply(df, function(x) gsub("'", "''", x)))
@@ -30,6 +34,7 @@ sqlize <- function(df, table="##mytable", na_string, file="mytable", save=TRUE) 
                   "');")
 
   if(save==TRUE){
+    print(paste("Saving code to", file, ".sql"))
     write.table(df$sql, file=paste0(file, ".sql"),
                 sep="\t", quote=FALSE,
                 row.names=FALSE, col.names=FALSE)
