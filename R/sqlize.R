@@ -23,7 +23,7 @@ sqlize <- function(df, table="##mytable", na_string, file="mytable", save=TRUE) 
     df[is.na(df)] <- na_string
   }
 
-  df$sql <- paste0("INSERT INTO ", table, "(",
+  df$sql <- paste0("INSERT INTO ", table, " (",
                   paste(names(df), collapse=", "), # column names
                   ") VALUES ('",
                   do.call(paste, c(df[names(df)], sep = "', '")),
