@@ -10,14 +10,14 @@
 ``` r
 library(sqlize)
 
-data(morley)
-sqlize(head(morley), table="morley", save=FALSE)
-#> INSERT INTO morley (Expt, Run, Speed) VALUES ('1', '1', '850');
-#> INSERT INTO morley (Expt, Run, Speed) VALUES ('1', '2', '740');
-#> INSERT INTO morley (Expt, Run, Speed) VALUES ('1', '3', '900');
-#> INSERT INTO morley (Expt, Run, Speed) VALUES ('1', '4', '1070');
-#> INSERT INTO morley (Expt, Run, Speed) VALUES ('1', '5', '930');
-#> INSERT INTO morley (Expt, Run, Speed) VALUES ('1', '6', '850');
+data(PlantGrowth)
+sqlize(head(PlantGrowth), table="plant_growth", save=FALSE)
+#> INSERT INTO plant_growth (weight, group) VALUES (4.17, 'ctrl');
+#> INSERT INTO plant_growth (weight, group) VALUES (5.58, 'ctrl');
+#> INSERT INTO plant_growth (weight, group) VALUES (5.18, 'ctrl');
+#> INSERT INTO plant_growth (weight, group) VALUES (6.11, 'ctrl');
+#> INSERT INTO plant_growth (weight, group) VALUES (4.5, 'ctrl');
+#> INSERT INTO plant_growth (weight, group) VALUES (4.61, 'ctrl');
 ```
 ## Installation
 
