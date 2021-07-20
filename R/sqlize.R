@@ -16,6 +16,9 @@ sqlize <- function(df, table, na_string, file="sqlizeR", save=TRUE) {
 
   df <- as.data.frame(df)
 
+  df <- lapply(df, function(x) if (is.factor(x)) as.character(x) else {x})
+  chr <- names(df[sapply(df, is.character)])
+
   if(missing(table)){
     stop("Please specify a name for your table!")
   }
@@ -23,15 +26,18 @@ sqlize <- function(df, table, na_string, file="sqlizeR", save=TRUE) {
   # replace single quote with SQL escape quote
   df <- data.frame(lapply(df, function(x) gsub("'", "''", x)))
 
+  # quote the character columns
+  df[chr] <- data.frame(lapply(df[chr], function(x) paste0("'", x, "'")))
+
   if(!missing(na_string)){
     df[is.na(df)] <- na_string
   }
 
   df$sql <- paste0("INSERT INTO ", table, " (",
                   paste(names(df), collapse=", "), # column names
-                  ") VALUES ('",
-                  do.call(paste, c(df[names(df)], sep = "', '")),
-                  "');")
+                  ") VALUES (",
+                  do.call(paste, c(df[names(df)], sep = ", ")),
+                  ");")
 
   if(save==TRUE){
     print(paste("Saving code to", file, ".sql"))
