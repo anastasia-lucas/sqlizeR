@@ -21,6 +21,6 @@ sqlize(df, table, na_string, file = "sqlizeR", save = TRUE)
 This function creates SQL insert statements for a dataframe
 }
 \examples{
-data(morley)
-sqlize(morley)
+data(PlantGrowth)
+sqlize(PlantGrowth, table="plant_growth", save=FALSE)
 }

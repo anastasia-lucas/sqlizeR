@@ -9,8 +9,8 @@
 #' @param save boolean to save result to file (default), otherwise print to screen
 #' @export
 #' @examples
-#' data(morley)
-#' sqlize(morley)
+#' data(PlantGrowth)
+#' sqlize(PlantGrowth, table="plant_growth", save=FALSE)
 
 sqlize <- function(df, table, na_string, file="sqlizeR", save=TRUE) {
 
