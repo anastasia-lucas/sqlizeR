@@ -8,7 +8,7 @@
 ## Usage
 
 ``` r
-library(sqlize)
+library(sqlizeR)
 
 data(PlantGrowth)
 sqlize(head(PlantGrowth), table="plant_growth", save=FALSE)
