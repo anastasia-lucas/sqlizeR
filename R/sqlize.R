@@ -41,7 +41,7 @@ sqlize <- function(df, table, na_string, file="sqlizeR", save=TRUE) {
                   ");")
 
   if(save==TRUE){
-    print(paste("Saving code to", file, ".sql"))
+    print(paste0("Saving code to ", file, ".sql"))
     write.table(df$sql, file=paste0(file, ".sql"),
                 sep="\t", quote=FALSE,
                 row.names=FALSE, col.names=FALSE)
