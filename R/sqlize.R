@@ -30,6 +30,7 @@ sqlize <- function(df, table, na_string, file="sqlizeR", save=TRUE) {
   df[chr] <- data.frame(lapply(df[chr], function(x) paste0("'", x, "'")))
 
   if(!missing(na_string)){
+    df[] <- lapply(df, as.character)
     df[is.na(df)] <- na_string
   }
 
