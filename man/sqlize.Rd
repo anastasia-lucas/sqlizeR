@@ -4,14 +4,14 @@
 \alias{sqlize}
 \title{sqlize}
 \usage{
-sqlize(df, table, na_string, file = "sqlizeR", save = TRUE)
+sqlize(df, table, na_string = "NULL", file = "sqlizeR", save = TRUE)
 }
 \arguments{
 \item{df}{data.frame}
 
 \item{table}{string containing name of the SQL table}
 
-\item{na_string}{string to replace NA values}
+\item{na_string}{string to replace NA values with}
 
 \item{file}{string containing file prefix to save .sql file if save=TRUE}
 
